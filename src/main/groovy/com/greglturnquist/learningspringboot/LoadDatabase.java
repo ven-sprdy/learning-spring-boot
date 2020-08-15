@@ -11,12 +11,15 @@ public class LoadDatabase {
     @Bean
     CommandLineRunner init(ChapterRepository chapterRepository) {
         return args -> {
-            Flux.just(
-                    new Chapter("Quick Start with Java"),
-                    new Chapter("Reactive Web with Spring Boot"),
-                    new Chapter("...and more!"))
-                    .flatMap(chapterRepository::save)
-                    .subscribe(System.out::println);
+            chapterRepository
+                    .deleteAll()
+                    .thenMany(
+                         Flux.just("Quick Start with Java", "Reactive Web with Spring Boot", "...and more!")
+                            .map(Chapter::new)
+                            .flatMap(chapterRepository::save)
+                    )
+                    .thenMany(chapterRepository.findAll())
+                    .subscribe(System.out::println );
         };
     }
 

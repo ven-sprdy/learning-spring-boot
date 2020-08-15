@@ -1,0 +1,9 @@
+server:
+  port: 9000
+endpoints:
+  health:
+    enabled: true
+logging:
+  level:
+    com:
+      greglturnquist: DEBUG
