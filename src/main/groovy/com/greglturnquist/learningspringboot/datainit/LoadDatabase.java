@@ -1,5 +1,7 @@
-package com.greglturnquist.learningspringboot;
+package com.greglturnquist.learningspringboot.datainit;
 
+import com.greglturnquist.learningspringboot.entity.Chapter;
+import com.greglturnquist.learningspringboot.repository.ChapterRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,11 +1,16 @@
-package com.greglturnquist.learningspringboot;
+package com.greglturnquist.learningspringboot.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Data
 @Document
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Chapter {
 
     @Id
@@ -15,5 +20,5 @@ public class Chapter {
     public Chapter(String name) {
         this.name = name;
     }
-    
+
 }
